@@ -1,23 +1,11 @@
 import express from 'express';
+import path from 'path';
 
 const app = express();
 
 app.use(express.json());
 
-app.get('/users/', (req, res) => {
-  console.log('GET /users');
-
-  res.json([
-    { name: 'JP' },
-    { name: 'Lili' },
-  ]);
-});
-
-app.post('/users', (req, res) => {
-  console.log('req.body', req.body);
-
-  res.json(req.body);
-});
+app.use('/uploads', express.static(path.resolve(__dirname, '..', 'uploads')));
 
 const port = 3333;
 app.listen(3333, () => {
