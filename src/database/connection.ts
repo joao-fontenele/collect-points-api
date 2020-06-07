@@ -7,6 +7,7 @@ const connection = knex({
     user: 'root',
     password: 'root',
     database: 'collect_points',
+    decimalNumbers: true,
   },
 });
 
